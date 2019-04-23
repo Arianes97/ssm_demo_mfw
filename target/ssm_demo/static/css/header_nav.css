@@ -1,0 +1,153 @@
+body,ul{
+    margin: 0;
+    padding: 0;
+}
+
+/*==================head========================*/
+.header-nav{
+    width: 95%;
+    height: 50px;
+
+}
+
+.header-nav .row{
+    height: 50px;
+
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    margin-top: 14px;
+
+}
+
+.first-nav li{
+    list-style: none;
+    float: left;
+    height: 100%;
+}
+
+.first-nav li a{
+    display: block;
+    width: 66px;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    color: #000000;
+
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+}
+.first-nav li a:hover{
+    color: #00a680;
+}
+
+.first-nav ul li:last-child{
+    font-size: 26px;
+    color: #000000;
+    margin-left: 10px;
+}
+
+
+.header-nav .nav-action>ul>li{
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+}
+.header-nav .nav-action>ul>li>a{
+    display: block;
+    width: 28px;
+    height: 28px;
+    /*  border: 1px solid #000000;*/
+    margin-top:11px ;
+    color: #000000;
+    font-size: 8px;
+    text-align: center;
+    line-height: 28px;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+.header-nav .nav-action>ul>li>a:hover{
+    color: #00a680 ;
+}
+.header-nav .nav-action .edit{
+    background: url("../images/edit.svg") no-repeat ;
+}
+.header-nav .nav-action .edit:hover{
+    background: url("../images/edit-hover.svg") no-repeat;
+}
+
+.header-nav .nav-action .trip{
+    background: url("../images/trip.svg") no-repeat;
+}
+.header-nav .nav-action .trip:hover{
+    background: url("../images/trip-hover.svg") no-repeat;
+}
+/*头部导航用户*/
+.header-nav .nav-action>ul>li>.account{
+    background: url("../images/account.svg") no-repeat;
+}
+.header-nav .nav-action>ul>li>.account:hover{
+    background: url("../images/account-hover.svg") no-repeat;
+}
+
+
+/*头部导航头像的二级菜单*/
+
+.nav-action>ul>li>.account:hover+ul{
+    display: block;
+}
+
+.second-down-menu{
+    width:200px;
+    text-align: center;
+    background-color: #ffffff;
+    position: absolute;
+     left: 10px;
+    display: none;
+    z-index: 10001;
+
+}
+.second-down-menu li{
+    list-style: none;
+}
+.second-down-menu li a{
+    display: block;
+    width: 100%;
+    height: 30px;
+    color: #000000;
+    font-size: 10px;
+    text-decoration: none;
+    line-height: 30px;
+
+}
+
+.second-down-menu:hover{
+    display: block;
+    line-height: 30px;
+}
+
+.second-down-menu li a:hover{
+    color:#00a680  ;
+    display: block;
+
+}
+
+.second-down-menu li:first-child a{
+    background-color:#00a680 ;
+    color: #ffffff;
+    line-height: 30px;
+}
+
+
+.header-nav .nav-action  .sperator {
+
+    display: block;
+    width: 2px;
+    height: 40px;
+    margin-top: 5px;
+    background-color: lightgray;
+}

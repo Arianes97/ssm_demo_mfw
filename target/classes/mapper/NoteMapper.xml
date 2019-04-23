@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chixing.dao.NoteDao">
+  <resultMap id="BaseResultMap" type="com.chixing.entity.Note">
+    <id column="note_note_id" jdbcType="INTEGER" property="noteId" />
+    <result column="note_cust_id" jdbcType="INTEGER" property="custId" />
+    <result column="note_note_title" jdbcType="VARCHAR" property="noteTitle" />
+    <result column="note_note_head_img" jdbcType="VARCHAR" property="noteHeadImg" />
+    <result column="note_note_create_time" jdbcType="TIMESTAMP" property="noteCreateTime" />
+    <result column="note_note_update_time" jdbcType="TIMESTAMP" property="noteUpdateTime" />
+    <result column="note_note_country" jdbcType="VARCHAR" property="noteCountry" />
+    <result column="note_note_city" jdbcType="VARCHAR" property="noteCity" />
+    <result column="note_note_area" jdbcType="VARCHAR" property="noteArea" />
+    <result column="note_note_type" jdbcType="INTEGER" property="noteType" />
+    <result column="note_note_char_count" jdbcType="INTEGER" property="noteCharCount" />
+    <result column="note_note_img_count" jdbcType="INTEGER" property="noteImgCount" />
+    <result column="note_note_trip_date" jdbcType="TIMESTAMP" property="noteTripDate" />
+    <result column="note_note_people_count" jdbcType="INTEGER" property="notePeopleCount" />
+    <result column="note_note_trip_fee_per_people" jdbcType="INTEGER" property="noteTripFeePerPeople" />
+    <result column="note_note_trip_days" jdbcType="INTEGER" property="noteTripDays" />
+    <result column="note_note_trip_partner" jdbcType="INTEGER" property="noteTripPartner" />
+    <result column="note_note_read_count" jdbcType="INTEGER" property="noteReadCount" />
+    <result column="note_note_collect_count" jdbcType="INTEGER" property="noteCollectCount" />
+    <result column="note_note_like_count" jdbcType="INTEGER" property="noteLikeCount" />
+    <result column="note_note_comment_count" jdbcType="INTEGER" property="noteCommentCount" />
+    <result column="note_note_search_keyword" jdbcType="VARCHAR" property="noteSearchKeyword" />
+    <result column="note_note_status" jdbcType="INTEGER" property="noteStatus" />
+    <result column="note_others1" jdbcType="VARCHAR" property="others1" />
+    <result column="note_othsrs2" jdbcType="VARCHAR" property="othsrs2" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.chixing.entity.Note">
+    <result column="note_note_content" jdbcType="LONGVARCHAR" property="noteContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    note.note_id as note_note_id, note.cust_id as note_cust_id, note.note_title as note_note_title, 
+    note.note_head_img as note_note_head_img, note.note_create_time as note_note_create_time, 
+    note.note_update_time as note_note_update_time, note.note_country as note_note_country, 
+    note.note_city as note_note_city, note.note_area as note_note_area, note.note_type as note_note_type, 
+    note.note_char_count as note_note_char_count, note.note_img_count as note_note_img_count, 
+    note.note_trip_date as note_note_trip_date, note.note_people_count as note_note_people_count, 
+    note.note_trip_fee_per_people as note_note_trip_fee_per_people, note.note_trip_days as note_note_trip_days, 
+    note.note_trip_partner as note_note_trip_partner, note.note_read_count as note_note_read_count, 
+    note.note_collect_count as note_note_collect_count, note.note_like_count as note_note_like_count, 
+    note.note_comment_count as note_note_comment_count, note.note_search_keyword as note_note_search_keyword, 
+    note.note_status as note_note_status, note.others1 as note_others1, note.othsrs2 as note_othsrs2
+  </sql>
+  <sql id="Blob_Column_List">
+    note.note_content as note_note_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.chixing.entity.NoteExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from note note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.chixing.entity.NoteExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from note note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from note note
+    where note.note_id = #{noteId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from note
+    where note_id = #{noteId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chixing.entity.NoteExample">
+    delete from note note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chixing.entity.Note">
+    insert into note (note_id, cust_id, note_title, 
+      note_head_img, note_create_time, note_update_time, 
+      note_country, note_city, note_area, 
+      note_type, note_char_count, note_img_count, 
+      note_trip_date, note_people_count, note_trip_fee_per_people, 
+      note_trip_days, note_trip_partner, note_read_count, 
+      note_collect_count, note_like_count, note_comment_count, 
+      note_search_keyword, note_status, others1, 
+      othsrs2, note_content)
+    values (#{noteId,jdbcType=INTEGER}, #{custId,jdbcType=INTEGER}, #{noteTitle,jdbcType=VARCHAR}, 
+      #{noteHeadImg,jdbcType=VARCHAR}, #{noteCreateTime,jdbcType=TIMESTAMP}, #{noteUpdateTime,jdbcType=TIMESTAMP}, 
+      #{noteCountry,jdbcType=VARCHAR}, #{noteCity,jdbcType=VARCHAR}, #{noteArea,jdbcType=VARCHAR}, 
+      #{noteType,jdbcType=INTEGER}, #{noteCharCount,jdbcType=INTEGER}, #{noteImgCount,jdbcType=INTEGER}, 
+      #{noteTripDate,jdbcType=TIMESTAMP}, #{notePeopleCount,jdbcType=INTEGER}, #{noteTripFeePerPeople,jdbcType=INTEGER}, 
+      #{noteTripDays,jdbcType=INTEGER}, #{noteTripPartner,jdbcType=INTEGER}, #{noteReadCount,jdbcType=INTEGER}, 
+      #{noteCollectCount,jdbcType=INTEGER}, #{noteLikeCount,jdbcType=INTEGER}, #{noteCommentCount,jdbcType=INTEGER}, 
+      #{noteSearchKeyword,jdbcType=VARCHAR}, #{noteStatus,jdbcType=INTEGER}, #{others1,jdbcType=VARCHAR}, 
+      #{othsrs2,jdbcType=VARCHAR}, #{noteContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chixing.entity.Note">
+    insert into note
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noteId != null">
+        note_id,
+      </if>
+      <if test="custId != null">
+        cust_id,
+      </if>
+      <if test="noteTitle != null">
+        note_title,
+      </if>
+      <if test="noteHeadImg != null">
+        note_head_img,
+      </if>
+      <if test="noteCreateTime != null">
+        note_create_time,
+      </if>
+      <if test="noteUpdateTime != null">
+        note_update_time,
+      </if>
+      <if test="noteCountry != null">
+        note_country,
+      </if>
+      <if test="noteCity != null">
+        note_city,
+      </if>
+      <if test="noteArea != null">
+        note_area,
+      </if>
+      <if test="noteType != null">
+        note_type,
+      </if>
+      <if test="noteCharCount != null">
+        note_char_count,
+      </if>
+      <if test="noteImgCount != null">
+        note_img_count,
+      </if>
+      <if test="noteTripDate != null">
+        note_trip_date,
+      </if>
+      <if test="notePeopleCount != null">
+        note_people_count,
+      </if>
+      <if test="noteTripFeePerPeople != null">
+        note_trip_fee_per_people,
+      </if>
+      <if test="noteTripDays != null">
+        note_trip_days,
+      </if>
+      <if test="noteTripPartner != null">
+        note_trip_partner,
+      </if>
+      <if test="noteReadCount != null">
+        note_read_count,
+      </if>
+      <if test="noteCollectCount != null">
+        note_collect_count,
+      </if>
+      <if test="noteLikeCount != null">
+        note_like_count,
+      </if>
+      <if test="noteCommentCount != null">
+        note_comment_count,
+      </if>
+      <if test="noteSearchKeyword != null">
+        note_search_keyword,
+      </if>
+      <if test="noteStatus != null">
+        note_status,
+      </if>
+      <if test="others1 != null">
+        others1,
+      </if>
+      <if test="othsrs2 != null">
+        othsrs2,
+      </if>
+      <if test="noteContent != null">
+        note_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noteId != null">
+        #{noteId,jdbcType=INTEGER},
+      </if>
+      <if test="custId != null">
+        #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="noteTitle != null">
+        #{noteTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noteHeadImg != null">
+        #{noteHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="noteCreateTime != null">
+        #{noteCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noteUpdateTime != null">
+        #{noteUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noteCountry != null">
+        #{noteCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="noteCity != null">
+        #{noteCity,jdbcType=VARCHAR},
+      </if>
+      <if test="noteArea != null">
+        #{noteArea,jdbcType=VARCHAR},
+      </if>
+      <if test="noteType != null">
+        #{noteType,jdbcType=INTEGER},
+      </if>
+      <if test="noteCharCount != null">
+        #{noteCharCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteImgCount != null">
+        #{noteImgCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripDate != null">
+        #{noteTripDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notePeopleCount != null">
+        #{notePeopleCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripFeePerPeople != null">
+        #{noteTripFeePerPeople,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripDays != null">
+        #{noteTripDays,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripPartner != null">
+        #{noteTripPartner,jdbcType=INTEGER},
+      </if>
+      <if test="noteReadCount != null">
+        #{noteReadCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteCollectCount != null">
+        #{noteCollectCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteLikeCount != null">
+        #{noteLikeCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteCommentCount != null">
+        #{noteCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteSearchKeyword != null">
+        #{noteSearchKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="noteStatus != null">
+        #{noteStatus,jdbcType=INTEGER},
+      </if>
+      <if test="others1 != null">
+        #{others1,jdbcType=VARCHAR},
+      </if>
+      <if test="othsrs2 != null">
+        #{othsrs2,jdbcType=VARCHAR},
+      </if>
+      <if test="noteContent != null">
+        #{noteContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chixing.entity.NoteExample" resultType="java.lang.Long">
+    select count(*) from note note
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update note note
+    <set>
+      <if test="record.noteId != null">
+        note.note_id = #{record.noteId,jdbcType=INTEGER},
+      </if>
+      <if test="record.custId != null">
+        note.cust_id = #{record.custId,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteTitle != null">
+        note.note_title = #{record.noteTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteHeadImg != null">
+        note.note_head_img = #{record.noteHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteCreateTime != null">
+        note.note_create_time = #{record.noteCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.noteUpdateTime != null">
+        note.note_update_time = #{record.noteUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.noteCountry != null">
+        note.note_country = #{record.noteCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteCity != null">
+        note.note_city = #{record.noteCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteArea != null">
+        note.note_area = #{record.noteArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteType != null">
+        note.note_type = #{record.noteType,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteCharCount != null">
+        note.note_char_count = #{record.noteCharCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteImgCount != null">
+        note.note_img_count = #{record.noteImgCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteTripDate != null">
+        note.note_trip_date = #{record.noteTripDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.notePeopleCount != null">
+        note.note_people_count = #{record.notePeopleCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteTripFeePerPeople != null">
+        note.note_trip_fee_per_people = #{record.noteTripFeePerPeople,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteTripDays != null">
+        note.note_trip_days = #{record.noteTripDays,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteTripPartner != null">
+        note.note_trip_partner = #{record.noteTripPartner,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteReadCount != null">
+        note.note_read_count = #{record.noteReadCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteCollectCount != null">
+        note.note_collect_count = #{record.noteCollectCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteLikeCount != null">
+        note.note_like_count = #{record.noteLikeCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteCommentCount != null">
+        note.note_comment_count = #{record.noteCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.noteSearchKeyword != null">
+        note.note_search_keyword = #{record.noteSearchKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteStatus != null">
+        note.note_status = #{record.noteStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.others1 != null">
+        note.others1 = #{record.others1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.othsrs2 != null">
+        note.othsrs2 = #{record.othsrs2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noteContent != null">
+        note.note_content = #{record.noteContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update note note
+    set note.note_id = #{record.noteId,jdbcType=INTEGER},
+      note.cust_id = #{record.custId,jdbcType=INTEGER},
+      note.note_title = #{record.noteTitle,jdbcType=VARCHAR},
+      note.note_head_img = #{record.noteHeadImg,jdbcType=VARCHAR},
+      note.note_create_time = #{record.noteCreateTime,jdbcType=TIMESTAMP},
+      note.note_update_time = #{record.noteUpdateTime,jdbcType=TIMESTAMP},
+      note.note_country = #{record.noteCountry,jdbcType=VARCHAR},
+      note.note_city = #{record.noteCity,jdbcType=VARCHAR},
+      note.note_area = #{record.noteArea,jdbcType=VARCHAR},
+      note.note_type = #{record.noteType,jdbcType=INTEGER},
+      note.note_char_count = #{record.noteCharCount,jdbcType=INTEGER},
+      note.note_img_count = #{record.noteImgCount,jdbcType=INTEGER},
+      note.note_trip_date = #{record.noteTripDate,jdbcType=TIMESTAMP},
+      note.note_people_count = #{record.notePeopleCount,jdbcType=INTEGER},
+      note.note_trip_fee_per_people = #{record.noteTripFeePerPeople,jdbcType=INTEGER},
+      note.note_trip_days = #{record.noteTripDays,jdbcType=INTEGER},
+      note.note_trip_partner = #{record.noteTripPartner,jdbcType=INTEGER},
+      note.note_read_count = #{record.noteReadCount,jdbcType=INTEGER},
+      note.note_collect_count = #{record.noteCollectCount,jdbcType=INTEGER},
+      note.note_like_count = #{record.noteLikeCount,jdbcType=INTEGER},
+      note.note_comment_count = #{record.noteCommentCount,jdbcType=INTEGER},
+      note.note_search_keyword = #{record.noteSearchKeyword,jdbcType=VARCHAR},
+      note.note_status = #{record.noteStatus,jdbcType=INTEGER},
+      note.others1 = #{record.others1,jdbcType=VARCHAR},
+      note.othsrs2 = #{record.othsrs2,jdbcType=VARCHAR},
+      note.note_content = #{record.noteContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update note note
+    set note.note_id = #{record.noteId,jdbcType=INTEGER},
+      note.cust_id = #{record.custId,jdbcType=INTEGER},
+      note.note_title = #{record.noteTitle,jdbcType=VARCHAR},
+      note.note_head_img = #{record.noteHeadImg,jdbcType=VARCHAR},
+      note.note_create_time = #{record.noteCreateTime,jdbcType=TIMESTAMP},
+      note.note_update_time = #{record.noteUpdateTime,jdbcType=TIMESTAMP},
+      note.note_country = #{record.noteCountry,jdbcType=VARCHAR},
+      note.note_city = #{record.noteCity,jdbcType=VARCHAR},
+      note.note_area = #{record.noteArea,jdbcType=VARCHAR},
+      note.note_type = #{record.noteType,jdbcType=INTEGER},
+      note.note_char_count = #{record.noteCharCount,jdbcType=INTEGER},
+      note.note_img_count = #{record.noteImgCount,jdbcType=INTEGER},
+      note.note_trip_date = #{record.noteTripDate,jdbcType=TIMESTAMP},
+      note.note_people_count = #{record.notePeopleCount,jdbcType=INTEGER},
+      note.note_trip_fee_per_people = #{record.noteTripFeePerPeople,jdbcType=INTEGER},
+      note.note_trip_days = #{record.noteTripDays,jdbcType=INTEGER},
+      note.note_trip_partner = #{record.noteTripPartner,jdbcType=INTEGER},
+      note.note_read_count = #{record.noteReadCount,jdbcType=INTEGER},
+      note.note_collect_count = #{record.noteCollectCount,jdbcType=INTEGER},
+      note.note_like_count = #{record.noteLikeCount,jdbcType=INTEGER},
+      note.note_comment_count = #{record.noteCommentCount,jdbcType=INTEGER},
+      note.note_search_keyword = #{record.noteSearchKeyword,jdbcType=VARCHAR},
+      note.note_status = #{record.noteStatus,jdbcType=INTEGER},
+      note.others1 = #{record.others1,jdbcType=VARCHAR},
+      note.othsrs2 = #{record.othsrs2,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chixing.entity.Note">
+    update note
+    <set>
+      <if test="custId != null">
+        cust_id = #{custId,jdbcType=INTEGER},
+      </if>
+      <if test="noteTitle != null">
+        note_title = #{noteTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noteHeadImg != null">
+        note_head_img = #{noteHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="noteCreateTime != null">
+        note_create_time = #{noteCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noteUpdateTime != null">
+        note_update_time = #{noteUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noteCountry != null">
+        note_country = #{noteCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="noteCity != null">
+        note_city = #{noteCity,jdbcType=VARCHAR},
+      </if>
+      <if test="noteArea != null">
+        note_area = #{noteArea,jdbcType=VARCHAR},
+      </if>
+      <if test="noteType != null">
+        note_type = #{noteType,jdbcType=INTEGER},
+      </if>
+      <if test="noteCharCount != null">
+        note_char_count = #{noteCharCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteImgCount != null">
+        note_img_count = #{noteImgCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripDate != null">
+        note_trip_date = #{noteTripDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notePeopleCount != null">
+        note_people_count = #{notePeopleCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripFeePerPeople != null">
+        note_trip_fee_per_people = #{noteTripFeePerPeople,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripDays != null">
+        note_trip_days = #{noteTripDays,jdbcType=INTEGER},
+      </if>
+      <if test="noteTripPartner != null">
+        note_trip_partner = #{noteTripPartner,jdbcType=INTEGER},
+      </if>
+      <if test="noteReadCount != null">
+        note_read_count = #{noteReadCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteCollectCount != null">
+        note_collect_count = #{noteCollectCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteLikeCount != null">
+        note_like_count = #{noteLikeCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteCommentCount != null">
+        note_comment_count = #{noteCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="noteSearchKeyword != null">
+        note_search_keyword = #{noteSearchKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="noteStatus != null">
+        note_status = #{noteStatus,jdbcType=INTEGER},
+      </if>
+      <if test="others1 != null">
+        others1 = #{others1,jdbcType=VARCHAR},
+      </if>
+      <if test="othsrs2 != null">
+        othsrs2 = #{othsrs2,jdbcType=VARCHAR},
+      </if>
+      <if test="noteContent != null">
+        note_content = #{noteContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where note_id = #{noteId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.chixing.entity.Note">
+    update note
+    set cust_id = #{custId,jdbcType=INTEGER},
+      note_title = #{noteTitle,jdbcType=VARCHAR},
+      note_head_img = #{noteHeadImg,jdbcType=VARCHAR},
+      note_create_time = #{noteCreateTime,jdbcType=TIMESTAMP},
+      note_update_time = #{noteUpdateTime,jdbcType=TIMESTAMP},
+      note_country = #{noteCountry,jdbcType=VARCHAR},
+      note_city = #{noteCity,jdbcType=VARCHAR},
+      note_area = #{noteArea,jdbcType=VARCHAR},
+      note_type = #{noteType,jdbcType=INTEGER},
+      note_char_count = #{noteCharCount,jdbcType=INTEGER},
+      note_img_count = #{noteImgCount,jdbcType=INTEGER},
+      note_trip_date = #{noteTripDate,jdbcType=TIMESTAMP},
+      note_people_count = #{notePeopleCount,jdbcType=INTEGER},
+      note_trip_fee_per_people = #{noteTripFeePerPeople,jdbcType=INTEGER},
+      note_trip_days = #{noteTripDays,jdbcType=INTEGER},
+      note_trip_partner = #{noteTripPartner,jdbcType=INTEGER},
+      note_read_count = #{noteReadCount,jdbcType=INTEGER},
+      note_collect_count = #{noteCollectCount,jdbcType=INTEGER},
+      note_like_count = #{noteLikeCount,jdbcType=INTEGER},
+      note_comment_count = #{noteCommentCount,jdbcType=INTEGER},
+      note_search_keyword = #{noteSearchKeyword,jdbcType=VARCHAR},
+      note_status = #{noteStatus,jdbcType=INTEGER},
+      others1 = #{others1,jdbcType=VARCHAR},
+      othsrs2 = #{othsrs2,jdbcType=VARCHAR},
+      note_content = #{noteContent,jdbcType=LONGVARCHAR}
+    where note_id = #{noteId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chixing.entity.Note">
+    update note
+    set cust_id = #{custId,jdbcType=INTEGER},
+      note_title = #{noteTitle,jdbcType=VARCHAR},
+      note_head_img = #{noteHeadImg,jdbcType=VARCHAR},
+      note_create_time = #{noteCreateTime,jdbcType=TIMESTAMP},
+      note_update_time = #{noteUpdateTime,jdbcType=TIMESTAMP},
+      note_country = #{noteCountry,jdbcType=VARCHAR},
+      note_city = #{noteCity,jdbcType=VARCHAR},
+      note_area = #{noteArea,jdbcType=VARCHAR},
+      note_type = #{noteType,jdbcType=INTEGER},
+      note_char_count = #{noteCharCount,jdbcType=INTEGER},
+      note_img_count = #{noteImgCount,jdbcType=INTEGER},
+      note_trip_date = #{noteTripDate,jdbcType=TIMESTAMP},
+      note_people_count = #{notePeopleCount,jdbcType=INTEGER},
+      note_trip_fee_per_people = #{noteTripFeePerPeople,jdbcType=INTEGER},
+      note_trip_days = #{noteTripDays,jdbcType=INTEGER},
+      note_trip_partner = #{noteTripPartner,jdbcType=INTEGER},
+      note_read_count = #{noteReadCount,jdbcType=INTEGER},
+      note_collect_count = #{noteCollectCount,jdbcType=INTEGER},
+      note_like_count = #{noteLikeCount,jdbcType=INTEGER},
+      note_comment_count = #{noteCommentCount,jdbcType=INTEGER},
+      note_search_keyword = #{noteSearchKeyword,jdbcType=VARCHAR},
+      note_status = #{noteStatus,jdbcType=INTEGER},
+      others1 = #{others1,jdbcType=VARCHAR},
+      othsrs2 = #{othsrs2,jdbcType=VARCHAR}
+    where note_id = #{noteId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getCount" resultType="java.lang.Integer">
+    select
+    count(note_id)
+    from note note
+  </select>
+
+
+
+
+  <!-- =============================查询新写的游记============================= -->
+  <select id="selectLatestOneByCustId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from note note
+    where note.cust_id = #{custId,jdbcType=INTEGER}
+    order by note.note_create_time desc
+    limit 0,1
+  </select>
+</mapper>

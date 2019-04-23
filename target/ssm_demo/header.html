@@ -1,0 +1,147 @@
+<!-- 头部 start -->
+<script>
+    $(function () {
+        //查询用户登录信息
+        $.get("/ssm_demo/customer/getLoginTelno", {}, function (result) {
+            //result  ：
+            console.log("result" +  result);  //result{"status":"HAS_LOGIN","data":{"customerTelno":18551179965},"message":"用户已登陆"}
+
+            console.log("result parse:" +  typeof(result) );
+            console.log("header.html telno:" +  result .data );
+            var data = result.data;
+
+
+            if(data !=null){
+                var customerTelno = "欢迎，" +data.customerTelnou;
+                $("#span_username").html(customerTelno);
+                $(".login_out").hide();
+                $(".login").show();
+            }else{
+                $(".login_out").show();
+                $(".login").hide();
+            }
+
+            //data:{"status":"SUCCESS","data":{"customerTelno":18551179965},"message":"操作成功"}
+            //data:{"status":"SUCCESS",null,"message":"操作失败"}
+
+
+        });
+    });
+
+    // jQuery.post(url,data,success(data, textStatus, jqXHR),dataType)
+    $(".logout").click(function(){
+        $.get("customer/logout", {}, function (result) {
+        console.log("okokok...." +  result);
+        var logoutStatus =JSON.parse(result).status;
+        if(logoutStatus=="SUCCESS") {
+            //退出成功
+            $(".login_out").show();
+            $(".login").hide();
+        }
+        } );
+
+    });
+
+
+
+
+
+
+
+
+</script>
+
+<link rel="stylesheet" href="/ssm_demo/static/css/header_nav.css" >
+
+<header id="header">
+        <div class="top_banner">
+            <img src="/ssm_demo/static/images/top_banner.jpg" alt="">
+        </div>
+        <div class="shortcut">
+            <!-- 未登录状态  -->
+            <div class="notlogin">
+                <a href="/ssm_demo/customer/gotoLogin" class="loginBtn">登录</a>
+                <a href="/ssm_demo/customer/goToRegist">注册</a>
+            </div>
+            <!-- 登录状态  -->
+            <div class="haslogin">
+                <a href="/ssm_demo/customer/gotoInfo"><span class="login_name"></span></a>&nbsp;&nbsp;
+                <a href="javascript:;"><span class="logout">退出</span></a>
+                <a href="/ssm_demo/note/gotoAdd">写游记</a>
+                <a href="/ssm_demo/note/gotoMyList">查看我的游记</a>
+            </div>
+        </div>
+        <div class="header_wrap">
+            <div class="topbar">
+                <!--<div class="logo">
+                    <a href="/"><img src="/ssm_demo/static/images/logo.jpg" alt=""></a>
+                </div>-->
+                <div class="search">
+                    <input name="" type="text" placeholder="请输入游记名称" class="search_input" autocomplete="off">
+                    <a href="javascript:;" class="search-button">搜索</a>
+                </div>
+                <div class="hottel">
+                    <div class="hot_pic">
+                        <img src="/ssm_demo/static/images/hot_tel.jpg" alt="">
+                    </div>
+                    <div class="hot_tel">
+                        <p class="hot_time">客服热线(9:00-6:00)</p>
+                        <p class="hot_num">400-8888-8888</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<script>
+    $(".notlogin").show();
+    $(".haslogin").hide();
+
+    $(function () {
+        $.get("/ssm_demo/customer/getLoginTelno",{},function (result) {
+            console.log("加载后 result"+result);
+            console.log("加载后 result的data"+result.data);
+            var data = result.data;
+            if (data != null) {
+                console.log("data is not null");
+                var customername = data.customerTelno;
+                $(".login_name").html(customername);
+                $(".notlogin").hide();
+                $(".haslogin").show();
+            }else {
+                console.log("data is null");
+                $(".notlogin").show();
+                $(".haslogin").hide();
+            }
+        });
+    });
+
+    $(".logout").click(function () {
+        $.get("/ssm_demo/customer/logout",{},function (result) {
+            if (result.status == "SUCCESS") {
+                console.log("result.status is success -->退出登录");
+                $(".notlogin").show();
+                $(".haslogin").hide();
+            }else {
+                console.log("result.status is not success");
+            }
+        });
+    });
+</script>
+    <!-- 头部 end -->
+     <!-- 首页导航 -->
+    <div class="navitem">
+        <ul id="category" class="nav">
+           <!-- <li class="nav-active"><a href="index.html">首页</a></li>
+            <li><a href="route_list.html">门票</a></li>
+            <li><a href="route_list.html">酒店</a></li>
+            <li><a href="route_list.html">香港车票</a></li>
+            <li><a href="route_list.html">出境游</a></li>
+            <li><a href="route_list.html">国内游</a></li>
+            <li><a href="route_list.html">港澳游</a></li>
+            <li><a href="route_list.html">抱团定制</a></li>
+            <li><a href="route_list.html">全球自由行</a></li>
+            <li><a href="favoriterank.html">收藏排行榜</a></li>-->
+        </ul>
+    </div>
+    

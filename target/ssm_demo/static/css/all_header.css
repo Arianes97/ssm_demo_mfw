@@ -1,0 +1,199 @@
+body,ul,li,a{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*========head-logo========================*/
+.header{
+    width: 1000px;
+    height: 58px;
+    /*background-color: #000000;*/
+    margin: 0 auto;
+}
+.header .head-logo{
+    float: left;
+    height: 100%;
+    width: 136px;
+    background-color: #ffffff;
+    position: relative;
+}
+.header .head-logo a{
+    float: left;
+    margin-top: 10px;
+    display: block;
+    width: 136px;
+    height: 38px;
+    line-height: 58px;
+    background: url(../images/mfw/header-sprites15.png) no-repeat 0 0;
+}
+
+
+
+
+
+
+/*===============================*/
+.header>ul{
+    padding-left: 20px;
+    padding-right: 10px;
+    /*display: block;*/
+    /*background: green;*/
+    width: 485px;
+    height: 58px;
+    float: left;
+}
+.header>ul>li{
+    display: block;
+    list-style: none;
+    height: 58px;
+    float: left;
+
+    line-height: 58px;
+}
+.header .head-menu .the_fuck{
+    background-color: #ff9d00;
+}
+.header .head-menu .the_fuck>a{
+    color: #ffffff;
+}
+.header>ul>li>a{
+    display: inline-block;
+    text-decoration: none;
+    height: 58px;
+    color: #000000;
+    margin-left: 20px;
+    margin-right: 15px;
+    font-size: 14px;
+}
+.header>ul>li>a:hover{
+    color: #ff9d00;
+    border-bottom: 2px solid #ff9d00;
+
+}
+.header>ul>li>a:hover+ul{
+    display: block;
+}
+.header .travel-mask{
+    position: relative;
+    top: 50px;
+    display: none;
+    z-index: 999999 !important;
+}
+/*.second-menu a:hover+ul{
+    display: block;
+}*/
+.travel-mask:hover{
+    display: block;
+}
+.header .travel-mask li{
+
+    position: relative;
+    top: -60px;
+    height: 40px;
+    background-color: palegoldenrod;
+}
+.header .travel-mask li a{
+    text-decoration: none;
+    color: darkgray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=====================*/
+.header .head-search{
+    float: left;
+    width: 130px;
+    height: 58px;
+    /*background-color: pink;*/
+    position: relative;
+}
+.header .head-search input{
+    width: 130px;
+    height: 30px;
+    background-color: #efefef;
+    border-radius: 5px;
+    border: 1px solid #808080;
+    margin: 15px auto;
+}
+.header .head-search a{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/mfw/u_search.svg.svg);
+    position: absolute;
+    top: 19px;
+    right: 2px;
+    overflow: hidden;
+}
+
+.login-info{
+    position: relative;
+    width: 175px;
+    height: 58px;
+    /*background-color: pink;*/
+    float: right;
+    /*line-height: 58px;*/
+}
+.login-info ul{
+    padding: 0;
+    width: 175px;
+    height: 58px;
+}
+.login-info ul li{
+    list-style: none;
+    height: 58px;
+    width: 58px;
+    float: left;
+}
+.login-info ul .check a{
+    display: block;
+    width: 58px;
+    height: 20px;
+    background-color: #1493e3;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.login-info ul .check2 a{
+    display: block;
+    font-size: 16px;
+    color: #000000;
+    margin-top: 20px;
+    text-align: center;
+}
+.login-info ul .check3 a{
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    margin-top: 14px;
+    background: url(../images/mfw/wKgED1uqIs-AMYTwAAAX-VIKIo0071.png);
+}
+
+
+.line{
+    width: 100%;
+    border: 1px solid darkgrey;
+}

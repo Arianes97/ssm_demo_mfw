@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--MyBatis核心配置：配置了数据源、连接池、映射mapper文件-->
+
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.chixing.entity.Customer" alias="Customer"/>
+        <typeAlias type="com.chixing.entity.Note" alias="Note"/>
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+
+</configuration>
+

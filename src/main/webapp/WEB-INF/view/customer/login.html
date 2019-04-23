@@ -1,0 +1,158 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>手机登录</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <link rel="stylesheet" href="/ssm_demo/dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/ssm_demo/dist/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/ssm_demo/dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        #login_telno,#login_normal {
+            width: 450px;
+            height: 100px;
+            margin: 126px auto;
+        }
+        #btn {
+            margin-left: 100px;
+            margin-top: -25px;
+            width: 120px;
+            height: 25px;
+            font-size: 11px;
+        }
+
+        body {
+            background-color: #ecfcf9;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    $("#getCodeBtn").click(function() {
+        console.log("getCodeBtn.... click");
+        curCount = count;
+        $("#getCodeBtn").attr("disabled", "true");//发送验证码
+        $("#getCodeBtn").val(curCount + "秒后可重新发送");
+        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次请求后台发送验证码 TODO
+    })
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("#getCodeBtn").removeAttr("disabled");//启用按钮
+            $("#getCodeBtn").val("重新发送验证码");
+        } else {
+            curCount--;
+            $("#getCodeBtn").val(curCount + "秒后可重新发送");
+        }
+    }
+</script>
+<body>
+<div class="container">
+<!-- ============================手机号码登录============================ -->
+    <div id="login-telno">
+        <h1>用户手机登录</h1>
+        <form  method="post">
+            用户手机号：<input type="text" class="phone" placeholder="请输入您的手机号码"/><br>
+            短信验证码:<input type="text"   id="code" />
+            <input type="button"  id="getCodeBtn" value="获取短信验证码"/><br>
+            <input type="button" class="loginBtn" value="登录"/><br>
+            <span id="tip" style="color: red;font-size: 10px"></span>
+        </form>
+
+        <a href="javascript:;" class="goto_login_normal">普通方式登录</a>
+    </div>
+<!-- ============================普通用户登录============================ -->
+    <div id="login-normal">
+        <h1>用户普通登录</h1>
+        <form  method="post">
+            用户手机号：<input type="text" placeholder="请输入您的手机号码"/><br>
+            登录密码:<input type="password" placeholder="请输入您的密码"/><br>
+            <input type="button"  value="登录"/><br>
+        </form>
+        <a href="javascript:;" class="goto_login_telno">手机方式登录</a>
+    </div>
+
+
+</div>
+</body>
+
+<script>
+
+    $("#login-telno").show();
+    $("#login-normal").hide();
+
+    $(".goto_login_normal").click(function () {
+        $("#login-telno").hide();
+        $("#login-normal").show();
+    })
+    $(".goto_login_telno").click(function () {
+        $("#login-telno").show();
+        $("#login-normal").hide();
+    })
+
+
+
+    var sms = "";
+    //发送验证码
+    $("#getCodeBtn").click(function() {
+        var phone = $(".phone").val();
+        if (phone != "") {
+            $.ajax({
+                url : "/ssm_demo/customer/getCode",  //发送请求  目标地址
+                type : "post",  //POST方式传输
+                data : {  //发送到服务器的数据
+                    "phone" : phone
+                },
+                success : function(result) {
+                    sms = result;
+                }
+            });
+        } else {
+            alert("请输入手机号");
+            return false;
+        }
+    });
+    //点击登录
+    $(".loginBtn").click(function() {
+        var phone = $(".phone").val();
+        console.log(phone);
+        var code = $("#code").val();
+        if (code == "") {
+            $("#tip").text("请输入手机验证码");
+        } else {
+            console.log("code:"+sms);
+            if (sms == code) {
+                $("#tip").text("");
+
+                loginByTelno(phone); //登录的异步请求
+                // window.location.href = "/ssm_demo/index.html";
+            } else {
+                $("#tip").text("验证码错误");
+            };
+        };
+    })
+
+    function loginByTelno(telno) {
+        $.ajax({
+            url:"/ssm_demo/customer/loginByTelno",    //发送登录请求
+            type:"post",
+            data:{"telno":telno},
+            success: function (result) {
+                if (result.status == "SUCCESS")
+                    window.location.href="/ssm_demo/index.html";
+                else{
+                    $("#tip").text("登录失败");
+                }
+
+            }
+        })
+    }
+</script>
+</html>

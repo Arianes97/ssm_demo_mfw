@@ -1,0 +1,463 @@
+body,ul,img,h1,p{
+    margin: 0;
+    padding: 0;
+}
+
+/*==================page heading=====================*/
+.page-heading{
+    width: 95%;
+    height: 60px;
+    margin: 0 auto;
+}
+.page-heading .left-heading{
+    float: left;
+}
+.page-heading .left-heading h1{
+    font-size: 28px;
+    font-weight: bolder;
+    line-height: 60px;
+
+}
+
+.page-heading .right-heading .totalContentCount{
+    font-size: 12px;
+    font-weight: bolder;
+    line-height: 60px;
+}
+
+.page-heading .right-heading ul{
+    float: right;
+}
+.page-heading .right-heading ul li{
+    list-style: none;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+
+.page-heading .right-heading ul li img{
+    width: 100%;
+    height:100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+.page-heading .right-heading{
+    float: right;
+}
+
+/*===============图片连接简述 photo links =================*/
+.vacation-links{
+    width: 95%;
+    height: 400px;
+  /*  border: 1px solid #000000;*/
+    margin: 0 auto;
+}
+
+.vacation-links .photo-links{
+    width: 45%;
+    height: 100%;
+   background-color: seagreen;
+    float: left;
+
+}
+.vacation-links .photo-links img{
+    width: 100%;
+    height: 100%;
+}
+.vacation-links .navs-links{
+     width: 55%;
+     height: 100%;
+     float: left;
+
+ }
+
+.vacation-links .navs-links li{
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+
+}
+.vacation-links .navs-links li a{
+    display: block;
+    width: 60%;
+    height: 62px;
+   /* border-bottom: 1px solid crimson;*/
+   /* padding-top: 15px;*/
+    text-decoration: none;
+    color: #000000;
+    font-weight: bolder;
+    line-height: 62px;
+    background-color: #f1f1f1;
+}
+.vacation-links .navs-links li a:hover {
+    color: seagreen;
+    background-color: #ffffff;
+}
+
+.navs-links .nav-link-icon{
+    display: block;
+    width: 40px;
+    height: 40px;
+    float: left;
+
+}
+
+.navs-links .go-to-link-arrow{
+    display: block;
+    width: 40px;
+    height: 40px;
+    float: right;
+}
+
+
+
+/*==============  指引导航条 ======================*/
+.persitent-tabs-container{
+    width: 95%;
+    height: 60px;
+     border-top:none;
+  /*  border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;*/
+    border-bottom: none;
+     margin: 0 auto;
+}
+
+.persitent-tabs-container li{
+    list-style: none;
+    float: left;
+
+}
+.persitent-tabs-container li a{
+    display: block;
+    width: 120px;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    /*border: 1px solid #000000;*/
+    font-size: 12px;
+    color: #000000;
+
+    text-decoration: none;
+}
+
+.persitent-tabs-container li a:hover , .persitent-tabs-container li:first-child a{
+    color: #007453;
+
+}
+
+.fixtabs{
+    position: fixed;
+    top: 0;
+    z-index: 10001;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #cccccc ;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bolder;
+}
+/*******************景点简介与价格比较********************************/
+.vacation-content-desc{
+    width: 95%;
+    height: 200px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+   /* background-color: seagreen;*/
+    margin: 0 auto;
+}
+.vacation-content-desc p{
+    display: block;
+    width: 35%;
+    height: 90%;
+    margin: 10px;
+    font-size: 10px;
+
+    float: left;
+}
+
+.vacation-content-desc p:first-line{
+    font-weight: bolder;
+}
+
+
+.vacation-content-desc .comparePrice{
+    float: left;
+    width: 58%;
+    height: 50%;
+     border: 1px solid #cccccc;
+    margin-top: 10px;
+}
+/*景点小照片 */
+.vacation-imgs-container{
+
+    width: 95%;
+    height: 200px;
+
+    margin: 20px auto;
+}
+
+
+
+.vacation-imgs-container ul li{
+    float: left;
+    list-style: none;
+    display: block;
+    width: 282px;
+    height: 200px;
+}
+
+.vacation-imgs-container ul li a{
+    display: block;
+    width: 282px;
+    height:  200px;
+
+}
+
+.vacation-imgs-container ul li a>img{
+    width: 100%;
+    height: 200px
+}
+
+
+
+.vacation-imgs-container ul li:last-child a{
+    background-image: url("../images/l-ile-de-ko-lone-dans.jpg");
+    opacity: 0.6;
+    text-align: center;
+    line-height: 200px;
+    text-decoration: none;
+
+
+}
+.vacation-imgs-container ul li:last-child a:hover{
+    opacity: 0.7;
+}
+
+.vacation-imgs-container ul li .more-imgs span{
+    color: #ffffff;
+    font-size: 13px;
+}
+
+
+
+/*排名前列的酒店*/
+.top-hotel-heading{
+    width: 95%;
+    height: 90px;
+
+    margin:0 auto;
+
+}
+
+.top-hotel-heading h4{
+    line-height: 90px;
+}
+.shadowFlareContainer{
+    width: 95%;
+    height: 80px;
+
+    margin:0 auto;
+    
+}
+
+.shadowFlareContainer ul li {
+    float: left;
+    list-style: none;
+}
+.shadowFlareContainer ul li a{
+    display: block;
+    width: 150px;
+    height:70px;
+    line-height: 80px;
+    border-top:3px solid #00a680 ;
+    border-left: 3px dotted #c4c4c4;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 10px;
+
+}
+
+.shadowFlareContainer ul li a:hover{
+    border-left: 3px dotted #808080;
+    display: block;
+
+}
+.shadowFlareContainer ul li a span{
+    display: block;
+    height: 25px;
+    color:#000000;
+}
+.shadowFlareContainer ul li a .hotel-bar-all:before{
+    content: url(../images/suoyou.svg);
+}
+
+.shadowFlareContainer ul li a .hotel-bar-chaozhi:before{
+    content: url(../images/jifen.svg);
+}
+.shadowFlareContainer ul li a .hotel-bar-zuanshi:before{
+    content: url(../images/zuanshi.svg);
+}
+
+.shadowFlareContainer ul li a .hotel-bar-spa:before{
+    content: url(../images/spa.svg);
+}
+
+.shadowFlareContainer ul li a .hotel-bar-haitan:before{
+    content: url(../images/haitan.svg);
+}
+
+.shadowFlareContainer ul li a .hotel-bar-dujiacun:before{
+    content: url(../images/haidao.svg);
+}
+.shadowFlareContainer ul li a .hotel-bar-gouwu:before{
+    content: url(../images/shopping.svg);
+}.shadowFlareContainer ul li a .hotel-bar-jiating:before{
+     content: url(../images/caffe.svg);
+ }
+
+
+/*酒店点评*/
+.hotel-commnet-comtainer{
+    width:  95%;;
+   height: 800px;
+    margin:0 auto;
+ }
+
+.hotel-commnet-comtainer ul li{
+    list-style: none;
+    float: left;
+    width: 400px;
+   /* height: 389px;*/
+  /*  border:1px solid #000000;*/
+    margin-left: 120px;
+    margin-bottom: 20px ;
+
+}
+
+
+.hotel-commnet-comtainer ul li .commnet-img{
+    display: block;
+    width: 100%;
+    height: 260px;
+    background-image: url("../images/hotel1.jpg");
+
+}
+
+.hotel-commnet-comtainer ul li .commnet-img span{
+    position: relative;
+    left: 20px;
+    top:220px;
+    color: #ffffff;
+}
+.hotel-commnet-comtainer ul li a{
+    text-decoration: none;
+}
+
+.hotel-commnet-comtainer .place{
+    display: block;
+    height: 30px;
+    width: 100%;
+    line-height:30px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+
+
+.hotel-commnet-comtainer .start,.hotel-commnet-comtainer .rank  {
+    display: block;
+}
+.hotel-commnet-comtainer .start i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/star.svg");
+
+}
+.hotel-commnet-comtainer .rank span{
+    color: #00a680 ;
+    font-size: 10px;
+}
+
+.hotel-commnet-comtainer .comment-user span,.hotel-commnet-comtainer .comment-date span{
+    color: #000000 ;
+    font-size: 10px;
+    font-weight: bolder;
+}
+
+
+
+
+
+/*
+热门目的地-*/
+
+.hot-dest{
+    width:  95%;;
+    height: 420px;
+    margin:0 auto;
+    /*border:1px solid #000000;*/
+}
+
+
+.hot-dest ul li{
+    list-style: none;
+    float: left;
+    width: 356px;
+    margin-left: 50px;
+    margin-bottom: 30px ;
+
+}
+.hot-dest ul li a{
+   text-decoration: none;
+
+}
+
+
+.hot-dest ul li .commnet-img{
+    display: block;
+    width: 100%;
+    height: 180px;
+    background-image: url("../images/hotel1.jpg");
+
+}
+
+.hot-dest ul li .commnet-img span{
+    position: relative;
+    left: 20px;
+    top:120px;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+
+.hot-dest ul li .commnet-img .rank{
+    display: block;
+    width: 80px;
+    height: 30px;
+    background-color:#00a680 ;
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+
+
+
+
+
+
+

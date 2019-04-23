@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="/ssm_demo/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/ssm_demo/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/ssm_demo/static/css/setting.css">
+    <link rel="stylesheet" href="/ssm_demo/static/css/all_header.css">
+    <link rel="stylesheet" href="/ssm_demo/static/css/set-footer.css">
+    <script src="/ssm_demo/dist/js/jquery-3.3.1.min.js"></script>
+    <script src="/ssm_demo/dist/js/bootstrap.js"></script>
+
+
+    <!-- 加载用户的信息-->
+    <script src="/ssm_demo/static/js/customer/info.js">  </script>
+
+</head>
+<body>
+<!--header-->
+<div class="header">
+    <div class="head-logo">
+        <a href="javascript:;"></a>
+    </div>
+    <ul class="head-menu">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">目的地</a></li>
+        <li><a href="javascript:;">旅游攻略</a></li>
+        <li>
+            <a href="javascript:;">旅行商城</a>
+        </li>
+        <li><a href="javascript:;">酒店</a></li>
+        <li><a href="javascript:;">社区</a></li>
+    </ul>
+    <div class="head-search">
+        <input type="text">
+        <a href="javascript:;"></a>
+    </div>
+    <div class="login-info">
+        <ul>
+            <li class="check"><a href="javascript:;">打卡</a></li>
+            <li class="check2"><a href="javascript:;">消息</a></li>
+            <li class="check3"><a href="javascript:;"></a></li>
+        </ul>
+    </div>
+</div>
+<!-- line -->
+<div class="line">
+</div>
+<!-- wrapper -->
+<div class="wrapper">
+    <!-- 左边的列表 -->
+    <div class="user">
+        <ul class="nav-tabs">
+            <li><a href="#tab1" data-toggle="tab">我的信息</a></li>
+            <li><a href="#tab2" data-toggle="tab">我的头像</a></li>
+            <li><a href="#tab3" data-toggle="tab">绑定设置</a></li>
+            <li><a href="#tab4" data-toggle="tab">账号安全</a></li>
+            <li><a href="#tab5" data-toggle="tab">我的窝设置</a></li>
+            <li><a href="#tab6" data-toggle="tab">幕后黑手</a></li>
+            <li><a href="#tab7" data-toggle="tab">我的钱包</a></li>
+        </ul>
+    </div>
+    <div class="user-right tab-content">
+        <div id="tab1" class="tab-pane active">
+            <div class="hd">
+                <strong>我的信息</strong>
+                <span>资料完善度</span>
+            </div>
+            <form id="p_form" method="post">
+                <div class="clearfix">
+                    <dt>名号:</dt>
+                    <dd>
+                        <input  type="text" placeholder="名号不能为空"  name="custName">
+                    </dd>
+                </div>
+                <div class="sexcheck clearfix">
+                    <dt>性别:</dt>
+                    <input type="radio" name="custGender" value="M" checked="checked">男性
+                    <input type="radio" name="custGender" value="F">女性
+
+
+                </div>
+                <div class="clearfix">
+                    <dt>居住城市:</dt>
+                    <dd>
+                        <input  type="text"     name="custCity" >
+                    </dd>
+                </div>
+                <div class="clearfix">
+                    <dt>出生日期:</dt>
+                    <dd>
+
+                        <input  type="date"    name="custBirth" >
+                      <!--  <fmt:formatDate value="${customer.custBirth}" pattern="yyyy/MM/dd"></fmt:formatDate>-->
+                    </dd>
+                </div>
+                <div class="person-info clearfix">
+                    <dt>个人简介:</dt>
+                    <dd>
+                        <input   name="others1"    />
+                    </dd>
+                </div>
+                <div class="clearfix">
+                    <dt>收货地址:</dt>
+                    <dd class="myaddress">
+                        <a href="javascript:;" style="color:#ff9d00 ">新增收货地址</a>
+                    </dd>
+                </div>
+                <div class="clearfix">
+                    <dt></dt>
+                    <dd class="tips">
+                        <b>**</b>提示信息<b>**</b>
+                        <p>如果您在马蜂窝活动中获得奖品，我们将按照该收货地址发送奖<br>品，
+                            所以请填写 真实有效 的收货信息。</p>
+                    </dd>
+                </div>
+                <div class="btn-sub">
+                    <input type="button" class="updateBtn" value="保存">
+                </div>
+            </form>
+        </div>
+        <div id="tab2" class="tab-pane">
+            <div class="hd">
+                <strong>我的头像</strong>
+                <span>资料完善度</span>
+            </div>
+            <form class="fuck">
+                <div class="userlogo">
+                    <div class="user-img">
+                        <img src="/ssm_demo/static/images/mfw/wangye.jpg>
+                    </div>
+                </div>
+                <div class="btn-sub">
+                    <button>上传</button>
+                </div>
+            </form>
+
+        </div>
+        <div id="tab3" class="tab-pane">
+            <div class="hd">
+                <strong>绑定设置</strong>
+                <span>资料完善度</span>
+            </div>
+            <div class="binding">
+                <div class="weixin">
+                    <img src="/ssm_demo/static/images/mfw/qr_mfw2.png">
+                    <p class="t1">加马蜂窝为微信好友</p>
+                    <p class="t2">或使用微信搜索<br>马蜂窝微信号</p>
+                    <p class="t1">DJ_LingYin</p>
+                </div>
+
+                <div class="title">好东西就要与朋友们分享，97% 的蜂蜂正在将精彩内容分享给朋友们</div>
+                <div class="bd-item">
+                    <dt><img src="/ssm_demo/static/images/mfw/weibo.svg"></dt>
+                    <dd>
+                        <h3>我的新浪微博帐户<span>未绑定</span>
+                            <br><strong>93%</strong>
+                            的蜂蜂正在分享
+                        </h3>
+                        <div class="btns">
+                            <a href="javascript:;">现在绑定</a>
+                        </div>
+                    </dd>
+                </div>
+            </div>
+        </div>
+        <div id="tab4" class="tab-pane">
+            <div class="hd">
+                <strong>账号安全</strong>
+                <span>资料完善度</span>
+            </div>
+            <div class="userpass">
+                <dl class="clearfix">
+                    <dt>密码:</dt>
+                    <dd>
+                        <a href="javascript:;" id="set-pwd-btn">修改密码</a>
+                        <div id="set_pwd">
+                            <div class="ways">
+                                <a href="javascript:;" class="byphone">
+                                    <i><img src="/ssm_demo/static/images/mfw/phion.svg"></i>
+                                    <p>手机验证修改</p>
+                                </a>
+                                <a href="javascript:;" class="bymail">
+                                    <i><img src="/ssm_demo/static/images/mfw/email.svg"></i>
+                                    <p>邮箱验证修改</p>
+                                </a>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>绑定邮箱:</dt>
+                    <dd>
+                        <a href="javascript:;">设置邮箱</a>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>绑定手机:</dt>
+                    <dd>
+                        <a href="javascript:;">更改号码</a>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>账号注销:</dt>
+                    <dd>
+                        <a href="javascript:;">申请注销</a>
+                    </dd>
+                </dl>
+                <ul class="logut_question">
+                    <li class="_j_question"><a>注销账号有哪些影响？ </a></li>
+                    <li class="_j_question"><a>注销账号的条件有哪些？ </a></li>
+                    <li class="_j_question"><a>已完成商家入驻，是否可以注销？</a></li>
+                    <li class="_j_question"><a>攻略号是否可以注销？</a></li>
+                    <li class="_j_question"><a>手机号未绑定可以注销账号吗？</a></li>
+                    <li class="_j_question"><a>绑定的手机号已更换，如何注销账号？</a></li>
+                    <li class="_j_question"><a>申请了注销是否还能撤销？</a></li>
+                    <li class="_j_question"><a>账号注销后，是否可以重新注册新账号？ </a></li>
+                    <li class="_j_question"><a>注销账户申请的审核时间是多久？</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="tab5" class="tab-pane">
+            <div class="hd">
+                <strong>我的窝设置</strong>
+                <span>资料完善度</span>
+            </div>
+        </div>
+        <div id="tab6" class="tab-pane">
+            <div class="hd">
+                <strong>黑名单管理</strong>
+                <span>资料完善度</span>
+            </div>
+        </div>
+        <div id="tab7" class="tab-pane">
+            <div class="hd">
+                <strong>我的钱包</strong>
+                <span>资料完善度</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div id="footer">
+    <!--ft-content-->
+    <div class="ft-content">
+        <div class="ft-con-left">
+            <dl class="ft-info-col ft-info-intro">
+                <dt>全球旅游消费指南 </dt>
+                <dd>覆盖全球200多个国家和地区</dd>
+                <dd><strong>100,000,000</strong> 位旅行者</dd>
+                <dd><strong>920,000</strong> 家国际酒店</dd>
+                <dd><strong>21,000,000</strong> 条真实点评</dd>
+                <dd><strong>382,000,000</strong> 次攻略下载</dd>
+                <dd><a class="highlight" href="http://www.mafengwo.cn/activity/sales_report2017/index" target="_blank">马蜂窝全球自由行“玩法”</a></dd>
+            </dl>
+            <dl class="ft-info-col ft-info-about">
+                <dt>关于我们</dt>
+                <dd><a href="http://www.mafengwo.cn/s/about.html" rel="nofollow">关于马蜂窝</a><a class="m_l_10" href="http://www.mafengwo.cn/s/contact.html" rel="nofollow">联系我们</a></dd>
+                <dd><a href="http://www.mafengwo.cn/s/private.html" rel="nofollow">隐私政策</a><a class="m_l_10" href="http://www.mafengwo.cn/s/logo.html" rel="nofollow">商标声明</a></dd>
+                <dd><a href="http://www.mafengwo.cn/s/agreement.html" rel="nofollow">服务协议</a><a class="m_l_10" href="http://www.mafengwo.cn/s/rules.html" rel="nofollow">游记协议</a></dd>
+                <dd><a href="http://www.mafengwo.cn/s/salesagreement.html" rel="nofollow">商城平台服务协议</a></dd>
+                <dd><a href="http://www.mafengwo.cn/s/property.html" rel="nofollow">网络信息侵权通知指引</a></dd>
+                <dd><a href="http://www.mafengwo.cn/s/sitemap.html" target="_blank">网站地图</a><a title="马蜂窝团队招聘" class="joinus highlight m_l_10" href="https://app.mokahr.com/apply/mafengwo1/173#/page/社会招聘?_k=j4j3ux" target="_blank" rel="nofollow">加入马蜂窝</a></dd>
+            </dl>
+            <dl class="ft-info-col ft-info-service">
+                <dt>旅行服务</dt>
+                <dd>
+                    <ul class="clearfix">
+                        <li><a href="http://www.mafengwo.cn/gonglve/" target="_blank">旅游攻略</a></li>
+                        <li><a href="http://www.mafengwo.cn/hotel/" target="_blank">酒店预订</a></li>
+                        <li><a href="http://www.mafengwo.cn/sales/" target="_blank">旅游特价</a></li>
+                        <li><a href="http://zuche.mafengwo.cn/" target="_blank">国际租车</a></li>
+                        <li><a href="http://www.mafengwo.cn/wenda/" target="_blank">旅游问答</a></li>
+                        <li><a href="http://www.mafengwo.cn/insure/" target="_blank">旅游保险</a></li>
+                        <li><a href="http://z.mafengwo.cn" target="_blank">旅游指南</a></li>
+                        <li><a href="http://huoche.mafengwo.cn" target="_blank">订火车票</a></li>
+                        <li><a href="http://www.mafengwo.cn/travel-news/" target="_blank">旅游资讯</a></li>
+                        <li><a href="http://www.mafengwo.cn/app/intro/gonglve.php" target="_blank">APP下载</a></li>
+                        <li style="width: 120px;"><a class="highlight" href="http://www.mafengwo.cn/sales/alliance.php" target="_blank">旅行商城全球商家入驻</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="ft-con-right">
+            <dl class="ft-info-col ft-info-qrcode">
+                <dd>
+                    <span class="ft-qrcode-tejia"><img src="/ssm_demo/static/images/fuwuhao.png"></span>
+                    <p>马蜂窝良品<br>官方服务号</p>
+                </dd>
+            </dl>
+            <dl class="ft-info-col ft-info-qrcode">
+                <dd>
+                    <span class="ft-qrcode-weixin"><img src="/ssm_demo/static/images/dingyuehao.png"></span>
+                    <p>马蜂窝旅游<br>订阅号</p>
+                </dd>
+            </dl>
+            <dl class="ft-info-col ft-info-qrcode">
+                <dd>
+                    <span class="ft-qrcode-weixin"><img src="/ssm_demo/static/images/APP.png"></span>
+                    <p>马蜂窝APP<br>扫描立即下载</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="ft-con-bottom">
+            <h5>向崇尚自由的加勒比海盗致敬！</h5>
+            <dd>
+                <a class="ft-social-weibo" href="http://weibo.com/mafengwovip" rel="nofollow"><img src="/ssm_demo/static/images/weibo.png"></a>
+                <a class="ft-social-qqt" href="http://t.qq.com/mafengwovip" rel="nofollow"><img src="/ssm_demo/static/images/tengxunweibo.png"></a>
+                <a class="ft-social-qzone" href="http://1213600479.qzone.qq.com/" rel="nofollow"><img src="/ssm_demo/static/images/kongjian.png"></a>
+            </dd>
+        </div>
+    </div>
+    <!--ft-links-->
+    <div class="ft-links">
+        <a href="http://china.makepolo.com/">马可波罗</a>
+        <a href="http://www.onlylady.com/" target="_blank">Onlylady女人志</a>
+        <a href="http://trip.elong.com/" target="_blank">艺龙旅游指南</a>
+        <a href="http://www.cncn.com" target="_blank">欣欣旅游网</a>
+        <a href="http://www.8264.com/" target="_blank">户外运动</a>
+        <a href="http://www.yue365.com/" target="_blank">365音乐网</a>
+        <a href="http://ishare.iask.sina.com.cn/" target="_blank">爱问共享资料</a>
+        <a href="http://www.uzai.com/" target="_blank">旅游网</a>
+        <a href="http://www.zongheng.com/" target="_blank">小说网</a>
+        <a href="http://www.xuexila.com/" target="_blank">学习啦</a>
+        <a href="http://www.yododo.com" target="_blank">游多多自助游</a>
+        <a href="http://www.zhcpic.com/" target="_blank">问答</a>
+        <a href="http://huoche.mafengwo.cn/" target="_blank">火车时刻表</a>
+        <a href="http://www.lvmama.com" target="_blank">驴妈妈旅游网</a>
+        <a href="http://www.haodou.com/" target="_blank">好豆美食网</a>
+        <a href="http://www.taoche.com/" target="_blank">二手车</a>
+        <a href="http://www.lvye.cn" target="_blank">绿野户外</a>
+        <a href="http://www.tuniu.com/" target="_blank">途牛旅游网</a>
+        <a href="http://www.mapbar.com/" target="_blank">图吧</a>
+        <a href="http://www.chnsuv.com" target="_blank">SUV联合越野</a>
+        <a href="http://www.uc.cn/" target="_blank">手机浏览器</a>
+        <a href="http://sh.city8.com/" target="_blank">上海地图</a>
+        <a href="http://www.tianqi.com/" target="_blank">天气预报查询</a>
+        <a href="http://www.ly.com/" target="_blank">同程旅游</a>
+        <a href="http://www.tieyou.com/" target="_blank">火车票</a>
+        <a href="http://www.yunos.com/" target="_blank">YunOS</a>
+        <a href="http://you.ctrip.com/" target="_blank">携程旅游</a>
+        <a href="http://www.jinjiang.com" target="_blank">锦江旅游</a>
+        <a href="http://www.huoche.net/" target="_blank">火车时刻表</a>
+        <a href="http://www.tripadvisor.cn/" target="_blank">TripAdvisor</a>
+        <a href="http://www.tianxun.com/" target="_blank">天巡网</a>
+        <a href="http://www.mayi.com/" target="_blank">短租房</a>
+        <a href="http://www.zuzuche.com" target="_blank">租租车</a>
+        <a href="http://www.5fen.com/" target="_blank">五分旅游网</a>
+        <a href="http://www.zhuna.cn/" target="_blank">酒店预订</a>
+        <a href="http://www.ailvxing.com" target="_blank">爱旅行网</a>
+        <a href="http://360.mafengwo.cn/all.php" target="_blank">旅游</a>
+        <a href="http://vacations.ctrip.com/" target="_blank">旅游网</a>
+        <a href="http://www.wed114.cn" target="_blank">wed114结婚网</a>
+        <a href="http://www.chexun.com/" target="_blank">车讯网</a>
+        <a href="http://www.aoyou.com/" target="_blank">遨游旅游网</a>
+        <a href="http://www.91.com/" target="_blank">手机</a>
+        <a href="http://www.mafengwo.cn/s/link.html" target="_blank">更多友情链接</a>
+    </div>
+    <!--ft-copyright-->
+    <div class="ft-copyright">
+        <a href="http://www.mafengwo.cn"><img src="/ssm_demo/static/images/ft-mfw.png"></a>
+        <p>? 2019 Mafengwo.cn
+            <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP备11015476号</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502013401" target="_blank">
+                <img width="12" style="margin:0 2px 4px 0;" src="http://images.mafengwo.net/images/footer/police_record.png">京公网安备11010502013401号
+            </a>
+            <a href="http://images.mafengwo.net/images/about/icp2.jpg" target="_blank" rel="nofollow">京ICP证110318号</a>
+            <span class="m_l_10">违法和不良信息举报电话: 010-59222790 举报邮箱 mfwyouji@mafengwo.com</span>
+        </p>
+        <p>网络出版服务许可证：(总)网出证(京)字第161号
+            <span class="m_l_10">增值电信业务经营许可证：京B2-20180228</span>
+            <a class="m_l_10" href="https://n1-q.mafengwo.net/s12/M00/A5/45/wKgED1xJi3uAA7KLAAf_CkKLHRQ87.jpeg" target="_blank" rel="nofollow">营业执照</a>
+            <a class="m_l_10" href="/sales/uhelp/doc" target="_blank" rel="nofollow">帮助中心</a>
+            <span class="m_l_10">马蜂窝客服：国内</span><span class="highlight">4006-345-678</span>
+            <span class="m_l_10">海外</span> <span class="highlight">+86-10-5922-2799</span>
+        </p>
+    </div>
+    <!--ft-bottom-->
+    <div class="ft-bottom">
+        <img src="/ssm_demo/static/images/ft-bottom.png">
+    </div>
+</div>
+
+
+</body>
+</html>

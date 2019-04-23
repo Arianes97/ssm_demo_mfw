@@ -1,0 +1,405 @@
+body,ul,li,a{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+
+/*=========wrapper=====================================*/
+
+.wrapper{
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+    height: 663px;
+    margin: 40px auto 0;
+    /*background-color: red;*/
+}
+
+
+/*========左边的列表=======================================*/
+.user {
+    width: 220px;
+    height: 386px;
+    float: left;
+    /*background-color: green;*/
+}
+.user ul  li {
+    width: 220px;
+    height: 46px;
+    /*border: 1px solid #000000;*/
+    margin-bottom: 8px;
+    text-align: center;
+    border-radius: 5px;
+}
+.user ul  li a{
+    display: block;
+    width: 220px;
+    height: 46px;
+    border-radius: 5px;
+    /*text-align: center;*/
+    line-height: 46px;
+    font-size: 14px;
+    color: darkgray;
+}
+.user ul li:first-child a{
+    color: #ffffff;
+    background-color: orange;
+
+}
+/*========右边的表单=======================================*/
+
+.wrapper .user-right{
+    width: 740px;
+    height: 613px;
+    /*background-color: pink;*/
+    float: left;
+    padding-left: 40px;
+
+}
+.wrapper .user-right .hd{
+    width: 700px;
+    height: 50px;
+    border-bottom: 1px solid darkgrey;
+    margin-bottom: 20px;
+}
+.wrapper .user-right .hd strong{
+    font-size: 24px;
+    color: #444;
+    font-weight: normal;
+}
+
+
+
+#p_form{
+    width: 700px;
+    height: 487px;
+    /*background-color: green;*/
+}
+#p_form .clearfix dt{
+    display: block;
+    text-align: right;
+    font-weight: normal;
+    color: #a1a1a1;
+    font-size: 16px;
+    float: left;
+    /*background-color: #ffffff;*/
+    width: 85px;
+    height: 21px;
+    padding: 8px 10px 0 0;
+}
+#p_form .clearfix dd{
+    display: block;
+    width: 490px;
+    height: 32px;
+    float: left;
+    margin-bottom: 15px;
+}
+#p_form .clearfix .myaddress{
+    margin-top: 8px;
+}
+#p_form .clearfix dd input{
+    width: 226px;
+    height: 32px;
+    padding: 6px 8px;
+    display: inline-block;
+    cursor: text;
+    font-size: 12px;
+    line-height: 18px;
+    color: #999;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+}
+
+#p_form .sexcheck dd{
+    display: block;
+    width: 490px;
+    height: 32px;
+    float: left;
+    margin-bottom: 15px;
+    line-height: 32px;
+}
+
+#p_form .sexcheck dd input{
+    position: relative;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border: 1px solid #ff9d00;
+    top: 5px;
+}
+#p_form .sexcheck dd input:hover{
+    cursor: pointer;
+    background-color: #ff9d00;
+}
+
+#p_form .person-info dd{
+    width: 490px;
+    height: 127px;
+    display: block;
+    float: left;
+    margin-bottom: 15px;
+    /*line-height: 32px;*/
+}
+
+#p_form .clearfix .tips{
+    width: 385px;
+    height: 100px;
+    background-color: #f6f6f6 !important;
+}
+#p_form .clearfix .tips dd{
+    width: 385px;
+    height: 100px;
+    padding: 15px 20px;
+}
+#p_form .clearfix .tips b:first-child,#p_form .clearfix .tips p{
+    margin-left: 10px;
+}
+#p_form .clearfix .tips b{
+    color: #ff9d00;
+}
+#p_form .btn-sub button {
+    width: 112px;
+    height: 36px;
+    display: block;
+    margin: 0 344px 0 244px;
+    line-height: 36px;
+    background-color: #ffa800;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#p_form .btn-sub button:hover{
+    background-color: #e89100;
+}
+
+#tab2 .fuck{
+    width: 700px;
+    height: 487px;
+    /*background-color: green;*/
+}
+#tab2 .fuck .userlogo{
+    width: 700px;
+    height: 206px;
+    /*background-color: red;*/
+}
+#tab2 .fuck .userlogo .user-img{
+    width: 120px;
+    height: 120px;
+    margin: 25px 0;
+
+}
+#tab2 .fuck .userlogo .user-img img{
+    height: 140px;
+    width: 140px;
+    margin-top: 25px;
+}
+
+#tab2 .fuck .btn-sub button{
+    width: 112px;
+    height: 36px;
+    display: block;
+    margin-top: -40px;
+    margin-left: 15px;
+    line-height: 36px;
+    background-color: #ffa800;
+    /*text-align: center;*/
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tab3 .binding{
+    width: 700px;
+    height: 360px;
+    /*background-color: palegoldenrod;*/
+}
+#tab3 .binding .title {
+    font-size: 14px;
+    color: #999;
+    /*background-color: red;*/
+    padding: 20px 0;
+}
+#tab3 .binding .bd-item{
+    width: 470px;
+    height: 175px;
+    padding: 35px 0 40px;
+    /*background-color: #808080;*/
+}
+#tab3 .binding .bd-item dt{
+    float: left;
+    width: 37px;
+    height: 37px;
+    /*background-color: blue;*/
+}
+#tab3 .binding .bd-item dt img{
+    width: 37px;
+    height: 37px;
+}
+#tab3 .binding .bd-item dd{
+    float: left;
+    width: 385px;
+    height: 101px;
+    margin-left: 30px;
+    /*background-color: blue;*/
+
+}
+#tab3 .binding .bd-item dd h3{
+    font-size: 16px !important;
+    margin: 0;
+}
+#tab3 .binding .bd-item dd .btns{
+    width: 145px;
+    height: 36px;
+    margin-top: 32px;
+    background-color:#ffa800 ;
+    border-radius: 4px;
+}
+
+#tab3 .binding .bd-item dd .btns a{
+    display: block;
+    width: 145px;
+    height: 36px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+}
+#tab3 .binding .bd-item dd .btns a:hover{
+    background-color: #eb9700;
+}
+#tab3 .binding .weixin{
+    width: 172px;
+    height: 277px;
+    padding: 20px;
+    position: absolute;
+    right: 40px;
+    top: 70px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px #ccc;
+    color: #999;
+    /*background-color: olivedrab;*/
+}
+#tab3 .binding .weixin img{
+    width: 132px;
+    height: 129px;
+    border: 3px solid #eb9700;
+}
+#tab3 .binding .weixin .t1{
+    width: 132px;
+    height: 44px;
+    padding: 10px 0 15px 0;
+    font-size: 12px;
+    color: #999;
+}
+#tab3 .binding .weixin .t2{
+    width: 132px;
+    height: 38px;
+    color: #999;
+    line-height: 1.6em;
+    margin-top: -20px;
+}
+
+#tab4 .userpass{
+    width: 560px;
+    height: 452px;
+    /*background-color: palegoldenrod;*/
+}
+#tab4 .userpass dl{
+    width: 560px;
+    height: 41px;
+    padding-bottom: 15px;
+    margin: 0 auto;
+}
+#tab4 .userpass dl dt{
+    width: 85px;
+    height: 25px;
+
+    float: left;
+    padding: 0 10px 0 0;
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.8em;
+    color: #a1a1a1;
+}
+
+#tab4 .userpass dl dd{
+    width: 455px;
+    height: 25px;
+    float: left;
+    line-height: 1.8em;
+    color: #666;
+}
+#tab4 .userpass dl dd a{
+    font-size: 14px;
+    color: #ffa800;
+    cursor: pointer;
+    /*text-decoration: none;*/
+}
+
+
+#set_pwd{
+    position: relative;
+    width: 455px;
+    height: 114px;
+    padding-top: 15px;
+    background-color: #ffffff;
+    display: none ;
+    float: left;
+}
+#set_pwd .ways{
+    width: 455px;
+    height: 114px;
+    /*background-color: #808080;*/
+}
+
+#set_pwd .ways a{
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    color: #999 !important;
+    /*padding-bottom: 30px;*/
+    /*background-color: transparent;*/
+    text-decoration: none;
+    cursor: pointer;
+    width: 84px;
+    height: 114px;
+
+}
+#set_pwd .ways a i{
+    width: 54px;
+    height: 54px;
+    display: block;
+    margin: 20px 0 10px;
+}
+#set_pwd .ways a i img{
+    width: 54px;
+    height: 54px;
+}
+#set_pwd .ways .bymail{
+    margin-left: 45px;
+}
+
+
+#tab4 .userpass .logut_question{
+    width: 540px;
+    height: 230px;
+    margin-left: 40px;
+    font-size: 14px;
+    line-height: 26px;
+}
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的游记列表</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/ssm_demo/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/ssm_demo/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/ssm_demo/static/css/setting.css">
+    <link rel="stylesheet" href="/ssm_demo/static/css/all_header.css">
+    <link rel="stylesheet" href="/ssm_demo/static/css/set-footer.css">
+    <script src="/ssm_demo/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/ssm_demo/static/js/bootstrap.js"></script>
+    <script src="/ssm_demo/static/js/date.format.js"></script>
+</head>
+<body>
+    <!--引入头部-->
+    <div id="header"></div>
+
+    <!-- 我的游记列表-->
+    <section id="content">
+        <section class="hemai_jx">
+            <div class="jx_top">
+                <div class="jx_tit">
+                    <img src="/ssm_demo/static/images/icon_5.jpg" alt="">
+                    <span style="font-size: 30px;font-weight: bold">我的游记</span>
+                </div>
+            </div>
+            <div class="jx_content">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <ul id="mynote_list" style="width: 80%;margin: 0 auto;">
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+
+    <!--引入尾部-->
+    <div id="footer"></div>
+    <!--导入布局js，共享header和footer-->
+    <script type="text/javascript" src="/ssm_demo/static/js/include.js"></script>
+    <script type="text/javascript" src="/ssm_demo/static/js/note/mylist.js"></script>
+</body>
+</html>

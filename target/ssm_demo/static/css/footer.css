@@ -1,0 +1,51 @@
+
+/*============================footer 底部================================*/
+#footer{
+    width: 80%;
+    height: 270px;
+    background: #5a5a5a;
+    margin: 30px auto;
+    padding: 30px;
+    font-size: 12px;
+}
+
+.responsive-footer{
+    width: 100%;
+    height: 80%;
+}
+
+.response-item{
+    width: 180px;
+    height: 100%;
+    float: left;
+}
+.responsive-footer .response-item:first-child{
+    margin-left: 50px;
+}
+
+.responsive-footer .response-item{
+    margin-right: 40px;
+}
+
+.response-item h3{
+    color: white;
+    height: 30px;
+    border-bottom: 1px solid white;
+    font-size: 14px;
+
+}
+.response-item ul{
+    margin-top: 30px;
+}
+.response-item li{
+    margin-bottom: 20px;
+    list-style: none;
+}
+.response-item li a{
+    color: #b9b9b9;
+}
+
+.response-item li a:hover{
+    color: white;
+}
+
